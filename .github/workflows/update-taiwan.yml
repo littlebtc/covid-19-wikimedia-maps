@@ -1,7 +1,7 @@
 name: Update and upload
 on:
   schedule:
-    - cron: "0 11 * * *"
+    - cron: "0 10 * * *"
   workflow_dispatch:
 
 jobs:
@@ -22,6 +22,10 @@ jobs:
         git submodule update --init &&
         cd .. &&
         mv pywikibot/* core/ && rmdir pywikibot && mv core pywikibot
+    - name: Write credentials from secrets
+      run: >
+       sed -i ''s/PYWIKIBOT_USER/${{ secrets.PYWIKIBOT_USER }}/g'' &&
+       sed -i ''s/PYWIKIBOT_PASS/${{ secrets.PYWIKIBOT_PASSS }}/g''
     - run: pip install requests
     - run: python run.py -p Taiwan
     - name: Upload new media
