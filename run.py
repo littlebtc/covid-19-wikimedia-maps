@@ -42,6 +42,8 @@ for place in places:
         with urllib.request.urlopen("https://od.cdc.gov.tw/eic/Age_County_Gender_19Cov.json") as response:
             cases = json.loads(response.read())
         for row in cases:
+            if row["縣市"] == "空值":
+                continue
             main[row["縣市"]]["cases"] += (
                 int(row["確定病例數"]) if row["確定病例數"].isdigit()
                 else 0
