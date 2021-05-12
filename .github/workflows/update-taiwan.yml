@@ -30,7 +30,7 @@ jobs:
     - run: python run.py -p Taiwan
     - name: Upload new media
       run: >
-        python pwb.py login -all -pass &&
+        python pwb.py login -all &&
         python upload.py -filename:"File:COVID-19_outbreak_Taiwan_per_capita_cases_map.svg"
         -summary:"Update map via GitHub Actions at littlebtc/covid-19-wikimedia-maps" -ignorewarn ../results/taiwan.svg &&
         python pwb.py login -logout
