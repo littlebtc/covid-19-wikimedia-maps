@@ -32,6 +32,6 @@ jobs:
       run: >
         python pwb.py login -all &&
         python pwb.py upload -filename:"File:COVID-19_outbreak_Taiwan_per_capita_cases_map.svg"
-        -summary:"Update map via GitHub Actions at littlebtc/covid-19-wikimedia-maps" -ignorewarn ../results/taiwan.svg &&
+        -summary:"Update map via GitHub Actions at littlebtc/covid-19-wikimedia-maps" -ignorewarn ../results/Taiwan.svg &&
         python pwb.py login -logout
       working-directory: ./pywikibot
