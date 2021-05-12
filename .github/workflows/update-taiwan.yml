@@ -24,8 +24,8 @@ jobs:
         mv pywikibot/* core/ && rmdir pywikibot && mv core pywikibot
     - name: Write credentials from secrets
       run: >
-       sed -i ''s/PYWIKIBOT_USER/${{ secrets.PYWIKIBOT_USER }}/g'' &&
-       sed -i ''s/PYWIKIBOT_PASS/${{ secrets.PYWIKIBOT_PASSS }}/g''
+       sed -i ''s/PYWIKIBOT_USER/${{ secrets.PYWIKIBOT_USER }}/g'' pywikibot/user-password.py &&
+       sed -i ''s/PYWIKIBOT_PASS/${{ secrets.PYWIKIBOT_PASSS }}/g'' pywikibot/user-password.py
     - run: pip install requests
     - run: python run.py -p Taiwan
     - name: Upload new media
